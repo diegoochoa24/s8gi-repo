@@ -56,7 +56,7 @@
 .course {
   font-size: var(--text-lg);
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-survey);
   margin-bottom: var(--space-8);
 }
 

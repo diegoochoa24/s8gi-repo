@@ -10,6 +10,7 @@
           :key="f.value"
           class="filter-btn"
           :class="{ active: activeFilter === f.value }"
+          :data-filter="f.value"
           @click="activeFilter = f.value"
         >
           {{ f.label }}
@@ -94,10 +95,28 @@ const filtered = computed(() =>
   color: var(--color-text);
 }
 
-.filter-btn.active {
-  background: var(--color-accent-subtle);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+.filter-btn[data-filter='all'].active {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.filter-btn[data-filter='survey'].active {
+  background: var(--color-survey-bg);
+  border-color: var(--color-survey);
+  color: var(--color-survey);
+}
+
+.filter-btn[data-filter='practical'].active {
+  background: var(--color-practical-bg);
+  border-color: var(--color-practical);
+  color: var(--color-practical);
+}
+
+.filter-btn[data-filter='essay'].active {
+  background: var(--color-essay-bg);
+  border-color: var(--color-essay);
+  color: var(--color-essay);
 }
 
 .grid {
@@ -180,11 +199,6 @@ const filtered = computed(() =>
 .open-hint {
   font-size: var(--text-xs);
   font-weight: 500;
-  color: var(--color-text-faint);
-  transition: color 0.15s ease;
-}
-
-.card:hover .open-hint {
-  color: var(--color-accent);
+  color: #ffffff;
 }
 </style>

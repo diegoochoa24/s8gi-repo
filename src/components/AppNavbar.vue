@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="container navbar-inner">
-      <a href="#" class="logo">Portafolio de evidencias</a>
+      <a href="#" class="logo"></a>
       <div class="links">
         <a href="#units">Unidades</a>
         <a href="#documents">Trabajos</a>
