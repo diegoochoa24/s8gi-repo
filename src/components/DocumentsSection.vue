@@ -199,6 +199,11 @@ const filtered = computed(() =>
 .open-hint {
   font-size: var(--text-xs);
   font-weight: 500;
+  color: var(--color-text-faint);
+  transition: color 0.15s ease;
+}
+
+.card:hover .open-hint {
   color: #ffffff;
 }
 </style>

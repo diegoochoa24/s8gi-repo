@@ -4,6 +4,7 @@
       <p class="eyebrow">Diego Alejandro Ochoa Hernández</p>
       <h1 class="name">Portafolio <br>de evidencias </h1>
       <p class="course">Gestión de la innovación</p>
+      <p class="description">Este sitio reúne las evidencias del trabajo académico desarrollado durante el semestre: prácticas, cuestionarios, ensayos y la documentación correspondiente al registro de propiedad intelectual del proyecto final.</p>
       <div class="meta">
         <div class="meta-row">
           <span class="meta-label">Matrícula</span>
@@ -36,11 +37,9 @@
 }
 
 .eyebrow {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.08em;
   color: var(--color-text-faint);
-  text-transform: uppercase;
   margin-bottom: var(--space-5);
 }
 
@@ -57,6 +56,14 @@
   font-size: var(--text-lg);
   font-weight: 500;
   color: var(--color-survey);
+  margin-bottom: var(--space-4);
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 560px;
   margin-bottom: var(--space-8);
 }
 
@@ -76,8 +83,6 @@
 .meta-label {
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--color-text-faint);
 }
 

@@ -70,8 +70,6 @@ import { units } from '../data/units'
   display: block;
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--unit-accent);
   margin-bottom: var(--space-2);
 }
