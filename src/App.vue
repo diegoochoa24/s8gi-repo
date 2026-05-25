@@ -1,6 +1,7 @@
 <template>
   <AppNavbar />
   <main>
+    <HeroSection />
     <section id="units" class="section-placeholder">
       <div class="container"><p>Units — próximamente</p></div>
     </section>
@@ -18,6 +19,7 @@
 
 <script setup lang="ts">
 import AppNavbar from './components/AppNavbar.vue'
+import HeroSection from './components/HeroSection.vue'
 </script>
 
 <style scoped>
