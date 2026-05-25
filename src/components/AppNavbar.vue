@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="container navbar-inner">
-      <a href="#" class="logo">S8GI-REPO</a>
+      <a href="#" class="logo">Portafolio de evidencias</a>
       <div class="links">
         <a href="#units">Unidades</a>
         <a href="#documents">Trabajos</a>
@@ -20,9 +20,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(20, 20, 24, 0.85);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(22, 22, 24);
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
@@ -34,7 +32,7 @@
 }
 
 .logo {
-  font-size: var(--text-sm);
+  font-size: var(--text-m);
   font-weight: 700;
   color: var(--color-accent);
 }

@@ -13,7 +13,7 @@ export const documents: CourseDocument[] = [
   {
     id: 'survey-1-v1',
     title: 'Cuestionario 1',
-    subtitle: 'LFT y LFDA — Versión 1',
+    subtitle: 'LFT y LFDA (Versión 1)',
     category: 'survey',
     path: '/s8gi-repo/documents/surveys/S8GI - Cuestionario 1 (Versión 1).pdf',
     unit: 1,
@@ -21,7 +21,7 @@ export const documents: CourseDocument[] = [
   {
     id: 'survey-1-v2',
     title: 'Cuestionario 1',
-    subtitle: 'LFT y LFDA — Versión 2',
+    subtitle: 'LFT y LFDA (Versión 2)',
     category: 'survey',
     path: '/s8gi-repo/documents/surveys/S8GI - Cuestionario 1 (Versión 2).pdf',
     unit: 1,
@@ -61,7 +61,7 @@ export const documents: CourseDocument[] = [
   {
     id: 'practical-5',
     title: 'Práctica 5',
-    subtitle: 'Innovación tecnológica — Línea de tiempo',
+    subtitle: 'Innovación tecnológica',
     category: 'practical',
     path: '/s8gi-repo/documents/practicals/S8GI - Práctica 5.pdf',
     unit: 2,
@@ -93,7 +93,7 @@ export const documents: CourseDocument[] = [
   {
     id: 'essay-p9',
     title: 'Práctica 9',
-    subtitle: 'Estudio de caso local — Ensayo',
+    subtitle: 'Estudio de caso local (Ensayo)',
     category: 'essay',
     path: '/s8gi-repo/documents/essays/S8GI - Práctica 9 Ensayo.pdf',
     unit: 3,
@@ -101,7 +101,7 @@ export const documents: CourseDocument[] = [
   {
     id: 'practical-9',
     title: 'Práctica 9',
-    subtitle: 'Estudio de caso local — Reporte',
+    subtitle: 'Estudio de caso local (Reporte)',
     category: 'practical',
     path: '/s8gi-repo/documents/practicals/S8GI - Práctica 9.pdf',
     unit: 3,

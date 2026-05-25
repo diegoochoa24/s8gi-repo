@@ -3,9 +3,7 @@
   <main>
     <HeroSection />
     <UnitsSection />
-    <section id="documents" class="section-placeholder">
-      <div class="container"><p>Documents — próximamente</p></div>
-    </section>
+    <DocumentsSection />
     <section id="project" class="section-placeholder">
       <div class="container"><p>Project — próximamente</p></div>
     </section>
@@ -19,6 +17,7 @@
 import AppNavbar from './components/AppNavbar.vue'
 import HeroSection from './components/HeroSection.vue'
 import UnitsSection from './components/UnitsSection.vue'
+import DocumentsSection from './components/DocumentsSection.vue'
 </script>
 
 <style scoped>
