@@ -4,41 +4,38 @@
       <p class="section-label">Bibliografía</p>
       <h2 class="section-title">Fuentes</h2>
 
-      <div v-if="sourceGroups.length > 0" class="accordion">
+      <div class="accordion">
         <div
           v-for="group in sourceGroups"
           :key="group.id"
           class="group"
+          :class="{ open: openIds.has(group.id) }"
         >
-          <button
-            class="group-trigger"
-            :class="{ open: openIds.has(group.id) }"
-            @click="toggle(group.id)"
-          >
-            <div class="group-meta">
+          <button class="group-trigger" @click="toggle(group.id)">
+            <div class="group-left">
               <span class="group-title">{{ group.title }}</span>
-              <span class="group-count">{{ group.references.length }} referencias</span>
+              <span class="group-count">{{ group.references.length }}</span>
             </div>
             <span class="chevron">{{ openIds.has(group.id) ? '−' : '+' }}</span>
           </button>
 
-          <div v-if="openIds.has(group.id)" class="group-body">
-            <p v-if="group.references.length === 0" class="empty-note">Sin referencias aún.</p>
-            <ul v-else class="ref-list">
-              <li v-for="ref in group.references" :key="ref.title" class="ref-item">
+          <ol v-if="openIds.has(group.id)" class="ref-list">
+            <li v-for="ref in group.references" :key="ref.title" class="ref-item">
+              <div class="ref-content">
                 <span class="ref-author">{{ ref.author }}.</span>
-                <a v-if="ref.url" :href="ref.url" target="_blank" rel="noopener noreferrer" class="ref-title linked">
-                  {{ ref.title }}
-                </a>
-                <span v-else class="ref-title">{{ ref.title }}</span>
+                <component
+                  :is="ref.url ? 'a' : 'span'"
+                  class="ref-title"
+                  :class="{ linked: ref.url }"
+                  v-bind="ref.url ? { href: ref.url, target: '_blank', rel: 'noopener noreferrer' } : {}"
+                >{{ ref.title }}</component>
                 <span v-if="ref.year" class="ref-year">({{ ref.year }})</span>
-              </li>
-            </ul>
-          </div>
+                <span v-if="ref.url" class="ref-link-icon">↗</span>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
-
-      <p v-else class="empty-note">Las fuentes bibliográficas se agregarán próximamente.</p>
     </div>
   </section>
 </template>
@@ -70,6 +67,11 @@ function toggle(id: string) {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.group.open {
+  border-color: var(--color-border);
 }
 
 .group-trigger {
@@ -86,12 +88,11 @@ function toggle(id: string) {
   transition: background 0.15s ease;
 }
 
-.group-trigger:hover,
-.group-trigger.open {
+.group-trigger:hover {
   background: var(--color-surface-2);
 }
 
-.group-meta {
+.group-left {
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -105,10 +106,20 @@ function toggle(id: string) {
 
 .group-count {
   font-size: var(--text-xs);
+  font-weight: 600;
   color: var(--color-text-faint);
   background: var(--color-surface-2);
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 1px 7px;
+  border-radius: 999px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.group.open .group-count {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .chevron {
@@ -118,25 +129,46 @@ function toggle(id: string) {
   flex-shrink: 0;
 }
 
-.group-body {
-  padding: var(--space-4) var(--space-5) var(--space-5);
-  border-top: 1px solid var(--color-border-subtle);
-}
-
 .ref-list {
   list-style: none;
+  counter-reset: ref-counter;
+  padding: 0 var(--space-5) var(--space-5);
+  border-top: 1px solid var(--color-border-subtle);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 1px;
+  margin-top: 0;
 }
 
 .ref-item {
+  counter-increment: ref-counter;
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.ref-item:last-child {
+  border-bottom: none;
+}
+
+.ref-item::before {
+  content: counter(ref-counter);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-faint);
+  min-width: 20px;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+
+.ref-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px var(--space-2);
+  gap: 3px var(--space-2);
   align-items: baseline;
   font-size: var(--text-sm);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .ref-author {
@@ -150,17 +182,23 @@ function toggle(id: string) {
 
 .ref-title.linked {
   color: var(--color-accent);
-  text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration: underline;
+  text-decoration-color: rgba(238, 66, 102, 0.35);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.ref-title.linked:hover {
+  text-decoration-color: var(--color-accent);
 }
 
 .ref-year {
   color: var(--color-text-faint);
+  font-size: var(--text-xs);
 }
 
-.empty-note {
-  font-size: var(--text-sm);
+.ref-link-icon {
+  font-size: var(--text-xs);
   color: var(--color-text-faint);
-  font-style: italic;
 }
 </style>
