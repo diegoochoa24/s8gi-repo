@@ -8,37 +8,37 @@
 
 :root {
   /* Background */
-  --color-bg: #0e0e10;
-  --color-surface: #18181b;
-  --color-surface-2: #222226;
-  --color-surface-3: #2a2a2f;
+  --color-bg: #191919;
+  --color-surface: #212121;
+  --color-surface-2: #2a2a2a;
+  --color-surface-3: #313131;
 
   /* Borders */
-  --color-border: #2e2e33;
-  --color-border-subtle: #232328;
+  --color-border: #333333;
+  --color-border-subtle: #282828;
 
   /* Text */
-  --color-text: #e8e8ed;
-  --color-text-muted: #8b8b96;
-  --color-text-faint: #52525c;
+  --color-text: #f0f0f0;
+  --color-text-muted: #999999;
+  --color-text-faint: #555555;
 
-  /* Accent */
-  --color-accent: #7c6af7;
-  --color-accent-hover: #6b59e8;
-  --color-accent-subtle: rgba(124, 106, 247, 0.12);
+  /* Accent — clean blue */
+  --color-accent: #4f8ef7;
+  --color-accent-hover: #3a7af5;
+  --color-accent-subtle: rgba(79, 142, 247, 0.1);
 
   /* Document type colors */
-  --color-survey: #3b9edd;
-  --color-survey-bg: rgba(59, 158, 221, 0.1);
-  --color-practical: #40c47c;
-  --color-practical-bg: rgba(64, 196, 124, 0.1);
-  --color-essay: #e8894a;
-  --color-essay-bg: rgba(232, 137, 74, 0.1);
+  --color-survey: #4f8ef7;
+  --color-survey-bg: rgba(79, 142, 247, 0.1);
+  --color-practical: #3dba7e;
+  --color-practical-bg: rgba(61, 186, 126, 0.1);
+  --color-essay: #e8924a;
+  --color-essay-bg: rgba(232, 146, 74, 0.1);
 
-  /* Unit accent colors — used in CSS selectors, not in data */
-  --color-unit-1: #7c6af7;
-  --color-unit-2: #3b9edd;
-  --color-unit-3: #40c47c;
+  /* Unit accent colors — referenced in CSS selectors only */
+  --color-unit-1: #4f8ef7;
+  --color-unit-2: #3dba7e;
+  --color-unit-3: #e8924a;
 
   /* Typography */
   --font-sans: 'Satoshi', system-ui, -apple-system, sans-serif;
@@ -66,10 +66,10 @@
   --space-10: 128px;
 
   /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
   /* Layout */
   --max-width: 900px;
@@ -101,7 +101,6 @@ svg {
   display: block;
 }
 
-/* Layout */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -109,9 +108,8 @@ svg {
   padding-inline: var(--space-5);
 }
 
-/* Section anatomy */
 .section {
-  padding-block: var(--space-10);
+  padding-block: var(--space-9);
 }
 
 .section-label {
@@ -120,16 +118,16 @@ svg {
   gap: var(--space-3);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-faint);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .section-label::before {
   content: '';
   display: block;
-  width: 20px;
+  width: 16px;
   height: 1px;
   background: var(--color-border);
 }
@@ -138,6 +136,7 @@ svg {
   font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-6);
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
