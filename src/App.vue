@@ -2,9 +2,7 @@
   <AppNavbar />
   <main>
     <HeroSection />
-    <section id="units" class="section-placeholder">
-      <div class="container"><p>Units — próximamente</p></div>
-    </section>
+    <UnitsSection />
     <section id="documents" class="section-placeholder">
       <div class="container"><p>Documents — próximamente</p></div>
     </section>
@@ -20,6 +18,7 @@
 <script setup lang="ts">
 import AppNavbar from './components/AppNavbar.vue'
 import HeroSection from './components/HeroSection.vue'
+import UnitsSection from './components/UnitsSection.vue'
 </script>
 
 <style scoped>
